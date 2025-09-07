@@ -11,7 +11,8 @@
 python_useful_scripts               # Project Folder
 │
 ├── delete_all_except_pdf.py        # script for deleting all files except pdf
-├── zip_all_pdf.py					# script for zipping all pdf files
+├── zip_all_pdf.py					        # script for zipping all pdf files
+├── rename_folders.py				        # script for renaming folders in bulk
 │
 └── .gitignore
 ```
