@@ -1,5 +1,5 @@
 # zip_all_pdf.py
-# Version: 1.1.0
+# Version: 1.1.1
 # Date: 2025-08-20
 # Author: Bhawesh Tank
 
@@ -7,19 +7,30 @@ import os
 import zipfile
 import datetime
 
+# ANSI Escape Codes for Colors
+BLACK = '\033[30m'
+RED = '\033[31m'
+GREEN = '\033[32m'
+YELLOW = '\033[33m'
+BLUE = '\033[34m'
+MAGENTA = '\033[35m'
+CYAN = '\033[36m'
+WHITE = '\033[37m'
+RESET = '\033[0m'  # Resets all formatting
+
 
 def main() -> None:
     authentication = authenticate_user("Please Enter the password to login.\nPassword:")
     if authentication:
         # User confirmation
-        user_input: str = input("Do you want to zip all .pdf files? (Y/n)")
+        user_input: str = input(f"{YELLOW}Do you want to zip all .pdf files? (Y/n){RESET}")
         if user_input.lower() == "y":  # Checking user input
             total_zipped_files = zip_files()  # Calling function
-            print(f"{total_zipped_files} file(s) zipped successfully.")
+            print(f"{GREEN}{total_zipped_files} file(s){RESET} zipped successfully.")
             print(f"Location: {os.getcwd()}")
             exit()
     else:
-        print("Invalid Password.\nPlease rerun script again.")
+        print(f"{RED}Invalid Password.\nPlease rerun script again.{RESET}")
         exit()
 
 

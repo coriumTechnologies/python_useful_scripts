@@ -1,11 +1,22 @@
 # delete_all_except_pdf.py
-# Version: 1.1.1
+# Version: 1.1.2
 # Date: 2025-08-20
 # Author: Bhawesh Tank
 
 import os
 from typing import Tuple
 import datetime
+
+# ANSI Escape Codes for Colors
+BLACK = '\033[30m'
+RED = '\033[31m'
+GREEN = '\033[32m'
+YELLOW = '\033[33m'
+BLUE = '\033[34m'
+MAGENTA = '\033[35m'
+CYAN = '\033[36m'
+WHITE = '\033[37m'
+RESET = '\033[0m'  # Resets all formatting
 
 
 def main() -> None:
@@ -17,7 +28,7 @@ def main() -> None:
             user_input = ""  # Clearing user input
 
             # User confirmation - 2nd time
-            user_input = input("Please confirm again as the data deletion will be irreversible. (Y/n)")
+            user_input = input(f"{YELLOW}Please confirm again as the data deletion will be irreversible. (Y/n){RESET}")
             if user_input.lower() == "y":  # Checking user input
                 total_files, deleted_files = delete_dirs()  # Calling function
                 print("\nScript executed.\n")
@@ -27,16 +38,16 @@ def main() -> None:
                 exit()  # Exiting the script
 
             elif user_input.lower() == "n":
-                print("You cancelled the operation in second confirmation.")
+                print(f"{RED}You cancelled the operation in second confirmation.{RESET}")
             else:
-                print("Invalid input. Please enter 'Y' or 'n'.")
+                print(f"{RED}Invalid input. Please enter 'Y' or 'n'.{RESET}")
 
         elif user_input.lower() == "n":
-            print("You cancelled the operation in first confirmation.")
+            print(f"{RED}You cancelled the operation in first confirmation.{RESET}")
         else:
-            print("Invalid input. Please enter 'Y' or 'n'.")
+            print(f"{RED}Invalid input. Please enter 'Y' or 'n'.{RESET}")
     else:
-        print("Invalid Password.\nPlease rerun script again.")
+        print(f"{RED}Invalid Password.\nPlease rerun script again.{RESET}")
         exit()
 
 
